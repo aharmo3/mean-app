@@ -7,7 +7,7 @@
 	<body ng-app='app'>
 		<div class="container" ng-controller="PostsCtrl">
 			<h1>Recent Posts</h1>
-			<input  class="form-control"/><button >Add Posts</button>
+			<input  class="form-control"/><button ng-click='addPost()' class="btn btn-default">Add Post</button>
 			<br>
 			<ul class="list-group">
 				<li  class="list-group-item" ng-repeat='post in posts'>
@@ -32,6 +32,12 @@
 						body: 'trying out angular js'
 					}
 				];
+				$scope.addPost = function () {
+					$scope.posts.unshift({
+						username: 'dickeyxxxx',
+						body: 'my new post!'
+					})
+				}
 			})
 		</script>
 	</body>
