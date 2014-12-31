@@ -22,17 +22,19 @@
 		<script>
 			var app = angular.module('app',[])
 
-			app.controller('PostsCtrl', function($scope) {
+			app.controller('PostsCtrl', function($scope, $http) {
 				$scope.addPost = function () {
 					if($scope.postBody) {
-						$scope.posts.unshift({
-							username: 'dickeyxxxx',
+						$http.post('/api/posts', {
+							username: 'aharmo3',
 							body: $scope.postBody
+						}).success(function (posts) {
+							$scope.posts.unshift(posts)
+							$scope.postBody = null
 						})
 					}
-					$scope.postBody = null;
 				}
-				
+
 				$scope.posts = [
 					{
 						username: 'aharmo3',

@@ -22,6 +22,9 @@ app.post('/api/posts', function(req, res, next) {
 		res.status(201).json(post)
 	})
 })
+app.get('/', function (req,res) {
+	res.sendfile('layout/posts.html')
+})
 
 app.listen(3000, function() {
 	console.log('server listening on', 3000)
