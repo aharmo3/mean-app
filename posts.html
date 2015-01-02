@@ -28,23 +28,13 @@
 						$http.post('/api/posts', {
 							username: 'aharmo3',
 							body: $scope.postBody
-						}).success(function (posts) {
-							$scope.posts.unshift(posts)
+						}).success(function (post) {
+							$scope.posts.unshift(post)
 							$scope.postBody = null
 						})
 					}
 				}
 
-				$scope.posts = [
-					{
-						username: 'aharmo3',
-						body: 'Node Rules!'
-					},
-					{
-						username: 'jeffdickey',
-						body: 'trying out angular js'
-					}
-				];
 			})
 		</script>
 	</body>
